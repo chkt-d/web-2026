@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лента</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header class="sidebar">
+        <ul class="sidebar__list">
+            <li class="sidebar__item">
+                <a href="#">
+                    <img src="assets/home.png" alt="Главная">
+                </a>
+            </li>
+            <li class="sidebar__item">
+                <a href="#">
+                    <img src="assets/profile.png" alt="Профиль">
+                </a>
+            </li>
+            <li class="sidebar__item">
+                <a href="#">
+                    <img src="assets/plus.png" alt="Добавить">
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="feed">
+        <div class="post">
+            <header class="post__header">
+                <div class="post__user">
+                    <img src="assets/avatar1.png" alt="Ваня Денисов" class="post__avatar"><span class="post__username">Ваня Денисов</span>
+                </div>
+                <img src="assets/edit.png" alt="Редактировать" class="post__edit-icon">
+            </header>
+
+            <div class="post__content">
+                <img src="assets/snow_city.png" alt="Снег в городе" class="post__main-image">
+            </div>
+
+            <div class="post__footer">
+                <div class="post__likes">
+                    <img src="assets/heart.png" alt="Лайк">
+                    <span>203</span>
+                </div>
+
+                <p class="post__text">
+                    Так красиво сегодня на улице! Настоящая зима Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в гор...
+                    <span class="post__more">ещё</span>
+                </p>
+
+                <p class="post__date">2 часа назад</p>
+            </div>   
+        </div>    
+        <div class="post">
+            <header class="post__header">
+                <div class="post__user">
+                    <img src="assets/avatar2.png" alt="Лиза Дёмина" class="post__avatar">
+                    <span class="post__username">Лиза Дёмина</span>
+                </div>
+            </header>
+            <div class="post__content">
+                <img src="assets/flowers.png" alt="Цветы на столе" class="post__main-image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

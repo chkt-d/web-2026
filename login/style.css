@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+
+* {
+    box-sizing: border-box; /* ширина строго по width */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FFFFFF;
+    display: block;
+    letter-spacing: -0.15px;
+    font-family: 'Golos Text';
+}
+
+.auth {
+    background-color: #FFFFFF;
+    width: 462px;
+    margin: 0 auto;
+}
+
+.auth__title {
+    font-size: 140px;
+    color: #222222;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 180px;
+    letter-spacing: -1.5px;
+}
+
+.auth__image-wrapper {
+    width: 462px;
+    height: 501px;
+    margin-bottom: 30px;
+}
+
+.auth__image {
+    width: 100%;
+    display: block;
+}
+
+.auth__label {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #222222;
+}
+
+.auth__input {
+    width: 343px;
+    height: 44px;
+    background-color: #f2f3f5;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 4px;
+}
+
+.auth__input_type_password {
+    background-image: url('assets/incognito_eye.png');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 45px;
+    background-size: 24px;
+}
+
+.auth__hint {
+    display: block;
+    font-size: 13px;
+    color: #808080;
+    margin-bottom: 16px;
+}
+
+.auth__button {
+    width: 343px;
+    height: 48px;
+    margin-top: 32px;
+    background-color: #222222;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+}
