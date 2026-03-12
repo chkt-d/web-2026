@@ -52,6 +52,7 @@ body {
 
 .post__edit-icon {
     vertical-align: middle; 
+    margin-left: 312px;
 }
 
 .post__content {
@@ -77,7 +78,7 @@ body {
     font-size: 15px;
     font-weight: 400;
     color: #222222;
-    vertical-align: middle;
+    margin: 0 auto;
 }
 
 .post__text {
