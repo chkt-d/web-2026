@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: #FFFFFF;
+    font-family: 'Golos Text', sans-serif; 
+    padding: 20px;
+    color: #222222;
+}
+
+.sidebar {
+    margin-bottom: 40px;
+}
+
+.sidebar__list { 
+    list-style-type: none;    
+    display: flex;
+    gap: 20px;
+}
+
+.sidebar__item a {
+    display: block;
+    line-height: 0;
+}
+
+.profile__info {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.profile__avatar {
+    width: 123px; 
+    height: 123px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    object-fit: cover; 
+}
+
+.profile__name {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: -0.25px;
+    line-height: 1;
+}
+
+.profile__bio {
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 361px;
+    letter-spacing: -0.15px;
+    line-height: 1.2;
+    margin: 0 auto 12px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap; 
+    max-width: 972px; 
+    margin: 0 auto;
+}
+
+.grid__item {
+    width: 33.333%; 
+    padding: 1px; 
+}
+
+.grid__image {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.grid__image:hover {
+    opacity: 0.8;
+}

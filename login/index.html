@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <main class="auth">
+        
+        <div class="auth__header">
+            <h1 class="auth__title">Войти</h1>
+                        
+            <div class="auth__image-wrapper">
+                <img src="assets/auth_background.png" class="auth__image" alt="User Image">
+            </div>
+        </div>
+
+        <div class="auth__content">
+            <form class="auth__form">
+                <div class="auth__field">
+                    <label class="auth__label" for="email">Электропочта</label>
+                    <input type="email" class="auth__input" id="email">
+                    <span class="auth__hint">
+                        Введите электропочту в формате *****@***.**
+                    </span>
+                </div>
+    
+                <div class="auth__field">
+                    <label class="auth__label" for="pass">Пароль</label>
+                    <input class="auth__input auth__input_type_password" type="password" id="pass">
+                </div>
+                
+                <button type="submit" class="auth__button">Продолжить</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
