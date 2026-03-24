@@ -28,6 +28,8 @@
             <span class="post__button post__button_type_more">ещё</span>
         </p>
 
-        <p class="post__date"><?= $post['date'] ?></p>
+        <span class="post__date">
+            <?= date('d.m.Y H:i', $post['date']) ?> 
+        </span>
     </footer>
 </article>

@@ -9,7 +9,7 @@ $postData = [
     'img_modifier' => '', 
     'likes' => 203,
     'text' => 'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в городке, занесенном снегом по ручку двери...» ',
-    'date' => '2 часа назад',
+    'date' => '1742828400',
     'has_edit' => true
 ];
 ?>
@@ -48,7 +48,7 @@ $postData = [
                     <span><?= $postData['likes'] ?></span>
                 </div>
                 <p class="post__text"><?= $postData['text'] ?></p>
-                <p class="post__date"><?= $postData['date'] ?></p>
+                <p class="post__date"><?= date('d.m.Y H:i', $postData['date']) ?></p>
             </footer>
         </article>
     </main>
