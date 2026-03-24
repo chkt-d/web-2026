@@ -1,5 +1,5 @@
 <?php
-$postId = $_GET['postId'] ?? 'Не указан'; 
+$postId = $_GET['id'] ?? 'Не указан'; 
 
 $postData = [
     'id' => 1,

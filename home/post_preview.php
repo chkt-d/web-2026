@@ -9,7 +9,7 @@
         <?php endif; ?>
     </header>
 
-    <a href="post.php?postId=<?= $post['id'] ?>" class="post__link" title="<?= $post['username'] ?>">
+    <a href="post.php?id=<?= $post['id'] ?>" class="post__link" title="<?= $post['username'] ?>">
         <div class="post__content">
             <img src="<?= $post['image'] ?>" 
                  alt="Пост пользователя <?= $post['username'] ?>" 
