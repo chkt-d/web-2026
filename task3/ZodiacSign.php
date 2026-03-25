@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../core.php';
 
-function dateProcessing($date) {
+function dateProcessing($date): ?array {
     $nums = [];
     $temp = "";
 
@@ -17,7 +17,7 @@ function dateProcessing($date) {
     if ($temp !== "") $nums[] = (int)$temp;
 
     if (!isset($nums[0]) || !isset($nums[1])) {
-        return createResponse(false, "Введена некорректная дата");
+        return null;
     }
     $day = $nums[0];
     $month = $nums[1];
@@ -39,7 +39,7 @@ function dateProcessing($date) {
         $year = $month; 
         $month = $tmp;
     } elseif ($month < 1 || $month > 12) {
-        return createResponse(false, 'Введена некорректная дата');
+        return null;
     }
 
     $daysInMonth = [
@@ -53,7 +53,7 @@ function dateProcessing($date) {
         if ($year <= $daysInMonth[$month]){
             $tmp = $year; $year = $day; $day = $tmp;
         } else {
-            return createResponse(false, 'Введена некорректная дата');
+            return null;
         }
     }
 
@@ -62,8 +62,8 @@ function dateProcessing($date) {
 
 function determineTheZodiac($dateStr) {
     $nums = dateProcessing($dateStr);
-    if (isset ($nums['isSuccess'])) {
-        return $nums;
+    if (!$nums) {
+        return createResponse(false, 'Введена некорректная дата');
     }
 
     [$day, $month, $year] = $nums;

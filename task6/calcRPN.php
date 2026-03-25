@@ -14,7 +14,9 @@ function evaluateRpn($expressionInRPN)
 
     for ($i = 0; isset($expressionInRPN[$i]); $i++) {
         $char = $expressionInRPN[$i];
-        if ($char >= '0' && $char <= '9') {
+        $nextChar = isset($expressionInRPN[$i+1]) ? $expressionInRPN[$i+1] : null;
+
+        if (($char >= '0' && $char <= '9') || ($char === '-' && $temp === "" && $nextChar >= '0' && $nextChar <= '9')) {
             $temp .= $char;
         } elseif ($char == ' ' && $temp !== "") {
             $top++;
@@ -29,8 +31,14 @@ function evaluateRpn($expressionInRPN)
 
             if ($top < 1 && $char !== '-') {
                 return createResponse(false, "Недостаточно чисел");
-            }
-            if ($top >= 1){
+            } 
+            
+            if ($top < 1 && $char === '-') {
+                $res = 0 - $stack[$top];
+            } else { 
+                if ($top > 1) {
+                    return createResponse(false, "Недостаточно чисел");
+                }
                 $secondOperand = $stack[$top];
                 $top--;
                 $firstOperand = $stack[$top];
@@ -40,15 +48,11 @@ function evaluateRpn($expressionInRPN)
                     $res = $firstOperand - $secondOperand;
                 elseif ($char == '*')
                     $res = $secondOperand * $firstOperand;
-                $stack[$top] = $res;
-            } elseif ($top < 1 && $char === '-') {
-                $operand = $stack[$top];
-                $res = 0 - $operand;
-                $stack[$top] = $res;
             }
-
+            $stack[$top] = $res;
+ 
         } elseif ($char !== ' ') {
-            return createResponse(false, "Недопустимый символ '$char'");
+            return createResponse(false, 'Встречен недопустимый символ: "' . $char . '"');
         }
     }
     if ($temp !== "") {
