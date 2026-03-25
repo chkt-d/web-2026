@@ -20,10 +20,13 @@ if (isset($data['image']) && isset($data['filename'])) {
     if (strpos($image_base64, ',') !== false) {
         $image_base64 = explode(',', $image_base64)[1];
     }
-
+    $dir = 'static';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0777, true);
+    }    
     $decoded_image = base64_decode($image_base64);
 
-    $file_path = 'static/' . $file_name;
+    $file_path =  $dir . '/' . $file_name;
 
     if (file_put_contents($file_path, $decoded_image)) {
         header('Content-Type: application/json');
