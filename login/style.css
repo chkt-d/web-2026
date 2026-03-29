@@ -1,0 +1,121 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    font-family: 'Golos Text', sans-serif;
+    letter-spacing: -0.15px;
+    color: #222222;
+}
+
+.auth {
+    position: relative;
+    min-height: 100vh;
+}
+
+.auth__header {
+    position: static;
+}
+
+.auth__title {
+    position: absolute;
+    top: 182px;
+    left: 179px;
+    width: 385px;
+    height: 180px;
+    z-index: 1;
+    font-size: 140px;
+    line-height: 180px;
+    color: #222222;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+}
+
+.auth__image-wrapper {
+    position: absolute;
+    top: 289px;
+    left: 269px;
+    width: 462px;
+    height: 501px;
+}
+
+.auth__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.auth__content {
+    position: absolute;
+    top: 415px;
+    left: 838px;
+    width: 343px;
+}
+
+.auth__form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.auth__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth__label {
+    display: block;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #222222;
+}
+
+.auth__input {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #F2F3F5;
+    font: inherit;
+    color: #222222;
+    outline: none;
+}
+
+.auth__input_type_password {
+    padding-right: 48px;
+    background-image: url('assets/incognito_eye.png');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 24px 24px;
+}
+
+.auth__hint {
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    color: #808080;
+}
+
+.auth__button {
+    width: 100%;
+    height: 48px;
+    margin-top: 0;
+    border: 0;
+    border-radius: 10px;
+    background-color: #222222;
+    color: #FFFFFF;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
