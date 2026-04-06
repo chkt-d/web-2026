@@ -1,0 +1,55 @@
+﻿<?php
+if (!function_exists('getRelativeTime')) {
+    function getRelativeTime($ts)
+    {
+        $ts = (int) $ts;
+        $d = time() - $ts;
+        if ($d < 60)
+            return "только что";
+        if ($d < 3600)
+            return floor($d / 60) . " мин. назад";
+        if ($d < 86400)
+            return floor($d / 3600) . " ч. назад";
+        if ($d < 604800)
+            return floor($d / 86400) . " дн. назад";
+        return date('d.m.Y', $ts);
+    }
+}
+?>
+
+
+<article class="post">
+    <header class="post__header">
+        <div class="post__user">
+            <img src="<?= $post['avatar'] ?>" alt="<?= $post['username'] ?>" class="post__avatar">
+            <span class="post__username"><?= $post['username'] ?></span>
+        </div>
+        <?php if ($post['has_edit']): ?>
+            <img src="assets/edit.png" alt="Редактировать" class="post__edit-icon">
+        <?php endif; ?>
+    </header>
+
+    <a href="post.php?id=<?= $post['id'] ?>" class="post__link" title="<?= $post['username'] ?>">
+        <div class="post__content">
+            <img src="<?= $post['image'] ?>" alt="Пост пользователя <?= $post['username'] ?>"
+                class="post__image <?= $post['img_modifier'] ?>">
+        </div>
+    </a>
+
+    <footer class="post__footer">
+        <div class="post__likes">
+            <img src="assets/heart.png" alt="Лайк" class="post__like-icon">
+            <span><?= $post['likes'] ?></span>
+        </div>
+
+        <?php if ($post['text'] !== ''): ?>
+            <p class="post__text">
+                <?= $post['text'] ?>
+                <span class="post__button post__button_type_more">ещё</span>
+            </p>
+        <?php endif; ?>
+        <span class="post__date">
+            <?= getRelativeTime($post['date']) ?>
+        </span>
+    </footer>
+</article>
