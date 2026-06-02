@@ -1,38 +1,37 @@
 ﻿<?php
+require_once 'includes/database.php';
+
 $postId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-$mysqli = new mysqli('127.0.0.1', 'root', '', 'blog');
+function getPostById($mysqli, $postId) {
+    $sql = "
+        SELECT 
+            post.id,
+            user.username,
+            user.avatar,
+            post.image,
+            '' AS img_modifier,
+            post.likes,
+            post.text,
+            UNIX_TIMESTAMP(post.created_at) AS date,
+            1 AS has_edit
+        FROM post
+        JOIN user ON post.user_id = user.id
+        WHERE post.id = $postId
+        LIMIT 1
+    ";
 
-if ($mysqli->connect_error) {
-    die('Ошибка подключения к БД: ' . $mysqli->connect_error);
+    $result = $mysqli->query($sql);
+
+    if (!$result) {
+        die('Ошибка запроса: ' . $mysqli->error);
+    }
+
+    return $result->fetch_assoc();
 }
 
-$mysqli->set_charset('utf8mb4');
-
-$sql = "
-    SELECT 
-        post.id,
-        user.username,
-        user.avatar,
-        post.image,
-        '' AS img_modifier,
-        post.likes,
-        post.text,
-        UNIX_TIMESTAMP(post.created_at) AS date,
-        1 AS has_edit
-    FROM post
-    JOIN user ON post.user_id = user.id
-    WHERE post.id = $postId
-    LIMIT 1
-";
-
-$result = $mysqli->query($sql);
-
-if (!$result) {
-    die('Ошибка запроса: ' . $mysqli->error);
-}
-
-$postData = $result->fetch_assoc();
+$mysqli = connectToDatabase();
+$postData = getPostById($mysqli, $postId);
 
 function getRelativeTime($ts) {
     $ts = (int) $ts;

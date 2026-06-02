@@ -1,39 +1,40 @@
 <?php
-$mysqli = new mysqli('127.0.0.1', 'root', '', 'blog');
+require_once 'includes/database.php';
 
-if ($mysqli->connect_error) {
-    die('Ошибка подключения к БД: ' . $mysqli->connect_error);
+function getPosts($mysqli) {
+    $sql = "
+        SELECT 
+            post.id,
+            user.username,
+            user.avatar,
+            post.image,
+            '' AS img_modifier,
+            post.likes,
+            post.text,
+            UNIX_TIMESTAMP(post.created_at) AS date,
+            1 AS has_edit
+        FROM post
+        JOIN user ON post.user_id = user.id
+        ORDER BY post.created_at DESC
+    ";
+
+    $result = $mysqli->query($sql);
+
+    if (!$result) {
+        die('Ошибка запроса: ' . $mysqli->error);
+    }
+
+    $posts = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $posts[] = $row;
+    }
+
+    return $posts;
 }
 
-$mysqli->set_charset('utf8mb4');
-
-$sql = "
-    SELECT 
-        post.id,
-        user.username,
-        user.avatar,
-        post.image,
-        '' AS img_modifier,
-        post.likes,
-        post.text,
-        UNIX_TIMESTAMP(post.created_at) AS date,
-        1 AS has_edit
-    FROM post
-    JOIN user ON post.user_id = user.id
-    ORDER BY post.created_at DESC
-";
-
-$result = $mysqli->query($sql);
-
-if (!$result) {
-    die('Ошибка запроса: ' . $mysqli->error);
-}
-
-$posts = [];
-
-while ($row = $result->fetch_assoc()) {
-    $posts[] = $row;
-}
+$mysqli = connectToDatabase();
+$posts = getPosts($mysqli);
 ?>
 
 <!DOCTYPE html>
